@@ -1,0 +1,56 @@
+html, body{
+    padding: 0%;
+    margin: 0%;
+    /* background-color: black; */
+    /* color: antiquewhite; */
+}
+
+.pad{
+    padding: 0%;
+}
+
+.colo{
+    background-color: rgb(83, 81, 81);
+    color: antiquewhite;
+}
+.danger{
+    color: red;
+}
+
+/* Change navbar-brand. */
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+/* Change navigation color.  */
+ .navbar #myMenu .custom-nav .nav-item a{
+     color: #fff;
+ }
+
+/* Change navigation hover color.  */
+ .navbar #myMenu .custom-nav .nav-item a:hover{
+     color: #F0AAB1;
+ }
+
+
+/* make header-img responsive.  */
+/* .back-image{
+    background-size: cover;
+    background-position: center center;
+    min-height: 10vh;
+    border-radius: 0%;
+    border: 2px solid red; */
+    /* height: 45%; */
+/* } */
+
+/* container texts */
+.con{
+    /* background-color: #d9dee0; */
+    /* border: 2px solid steelblue;
+    border-radius: 5px; */
+    /* margin-top: 2px; */
+    border-bottom: 5px rgb(60, 12, 122) rgb(83, 81, 81);
+    margin-bottom: 2px;
+}

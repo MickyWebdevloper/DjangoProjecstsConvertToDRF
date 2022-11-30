@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Uploader</title>
+  <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'myapp/css/cs.css' %}">
+  <!-- date picker. -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+
+</head>
+
+<body>
+  <div class="container mb-3">
+    {% block body %}
+    {% endblock body %}
+  </div>
+
+
+  <!-- js.  -->
+  <script src="{% static 'myapp/js/bootstrap.js' %}"></script>
+  <script src="{% static 'myapp/js/popper.js' %}"></script>
+  <!-- date picket.  -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- date picker  -->
+  <script>
+    $(function () {
+      $("#datepicker").datepicker();
+    });
+  </script>
+</body>
+
+</html>

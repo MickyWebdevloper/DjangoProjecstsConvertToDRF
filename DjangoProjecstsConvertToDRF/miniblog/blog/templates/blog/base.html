@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <!-- boostrape. -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+    <!-- <link rel="stylesheet" href="{% static 'blog/css/cs.css' %}"> -->
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <!-- Navigatiion Bar. -->
+        {% include "blog/navbar.html" %}
+    </div>
+
+    <div class="container my-2">
+        <div class="row">
+            <div class="col-sm-12">
+                {% block msg %}
+                <!-- messages  -->
+                {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-2 alert-dismissible fade show"
+                    role="alert" {% endif %}>
+                    <strong>{{message}} !</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </p>
+                {% endfor %}
+                {% endif %}
+                {% endblock msg %}
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- side bar  -->
+            {% block side %}
+
+            {% endblock side %}
+            <!-- main content  -->
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+    <script src="{% static 'blog/js/popper.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+*,
+html,
+body{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+
+/* list-styling none.  */
+#id_gendar, #id_job_city{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+#id_gendar > li, #id_job_city >  li{
+    padding-left: 10px;
+}
+
+.float-right{
+    float:right;
+}

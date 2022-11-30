@@ -1,0 +1,81 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="contaienr shadow">
+    <div class="border p-3">
+        <h1>Django Settings.py </h1>
+        <pre><code class="language-django">
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+# made by pyplace ( Worked fine )
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join((
+    BASE_DIR), 'static_cdn', 'static_root')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join((
+    BASE_DIR), 'static_cdn', 'media_root')
+
+# made me geeky shows ( Worked fine )
+# STATIC_URL = '/static/' 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# made by me.
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+# made by me.
+LOGIN_REDIRECT_URL = 'blog-home'
+
+LOGIN_URL = 'login'
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+# EMAIL_HOST_USER = 'mai is here'
+# EMAIL_HOST_PASSWORD = 'pass is here'
+</code></pre>
+    </div>
+</div>
+
+
+<div class="border p-3">
+    <h1>Django Url.py </h1>
+    <pre><code class="language-django">
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import home_view
+
+urlpatterns = [
+path('admin/', admin.site.urls),
+path('', home_view, name='home-view'),
+# path('profiles/', include('profiles.urls', namespace='profiles')),
+path('profiles/', include('profiles.urls'), name='my-profile-view'),
+path('accounts/', include('core.urls')),
+path('posts/', include('posts.urls')),
+# path('accounts/', include('django.contrib.auth.urls')),
+]
+
+# made me.( Worked Fine )
+if settings.DEBUG:
+urlpatterns += static(settings.MEDIA_URL,
+                        document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL,
+                        document_root=settings.STATIC_ROOT)
+
+# by Pyplance ( Not working )
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+</code></pre>
+</div>
+
+{% endblock content %}

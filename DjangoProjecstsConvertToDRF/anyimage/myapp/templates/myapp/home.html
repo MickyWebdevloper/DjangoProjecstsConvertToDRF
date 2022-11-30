@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block body %}
+<h1 class="alert alert-danger text-center p-5">Resume Uploader</h1>
+<div class="row">
+    <!-- first column -->
+    <div class="col-sm-8">
+        <form action="" method="POST" enctype="multipart/form-data" class="shadow p-5">
+            {% csrf_token %}
+            {% for fm in form %}
+            <div class="my-2">
+                {{ fm.label_tag }}
+                {{ fm }}
+                <small class="text-danger">{{ fm.errors|striptags }}</small>
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-danger my-3" value="Submit">
+            <!-- non field error  -->
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{ error }}</p>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+    <!-- another column -->
+    <div class="col-sm-4">
+        <h2 class="text-center mb-3"><u> List of Canditate</u></h2>
+        {% for candidate in candidates %}
+        {{ candidate.id }} <a href="{% url 'candidate' candidate.id %}">{{ candidate.name }}</a>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

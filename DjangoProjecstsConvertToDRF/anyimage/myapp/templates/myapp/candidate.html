@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% load myfilter %}
+{% load static %}
+
+{% block body %}
+<h1 class="alert alert-danger text-center p-5 mb-3">Canditate Details.</h1>
+<div class="row">
+    <div class="col-sm-10 shadow p-5 offset-sm-1">
+        <h3 class="text-danger text-center my-3"><u>Resume</u></h3>
+        <p class="float-right">Application {{ candidate.id }}</p>
+        <img src="{{ candidate.profile_picture.url }}" alt="Profile Img"
+            class="float-right mt-5 img-fluid img-thumbnail" width="150px" height="150px">
+        <p>Name: {{ candidate.name }}</p>
+        <p>Date Of Birth: {{ candidate.dob }}</p>
+        <p>Gendar: {{ candidate.gendar }}</p>
+        <p>Address: {{ candidate.locality }}, {{ candidate.city }}, {{ candidate.pin }}, {{ candidate.state }}</p>
+        <p>Mobile No: {{ candidate.mobile }}</p>
+        <p>Email Id: {{ candidate.email }}</p>
+        <p>Preferred Job Cities: {{ candidate.job_city|remove_special:"[]'" }}</p>
+        <p>Attachment: <a href="{{ candidate.my_file }}">Download File</a></p>
+        <div class="text-center">
+            <a href="{% url 'home' %}" class='btn btn-danger mb-2'>Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

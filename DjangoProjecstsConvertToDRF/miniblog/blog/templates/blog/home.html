@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+{% for post in posts %}
+<div class="content-section col-sm-10 shadow-sm p-3 mb-2">
+    <div class="article-metadata">
+        <a href="#" class="me-2"> {{ user.username }} </a>
+        <small class="text-muted">{{ post.date_posted|date:"F d Y" }}</small>
+    </div>
+    <h2><a href="#" class="article-title">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+</div>
+{% endfor %}
+
+{% endblock content %}
